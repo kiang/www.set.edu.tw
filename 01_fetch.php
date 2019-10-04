@@ -118,6 +118,9 @@ foreach($days AS $day) {
                 if(false !== strpos($parts[$k], chr(13))) {
                     $parts[$k] = explode(chr(13), $parts[$k])[0];
                 }
+                if(false !== strpos($parts[$k], chr(10))) {
+                    $parts[$k] = explode(chr(10), $parts[$k])[0];
+                }
             }
             fputcsv($fh, $parts);
         }
