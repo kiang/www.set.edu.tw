@@ -87,7 +87,7 @@ foreach($days AS $day) {
     $theYear = date('Y', $theTime);
     $theDate = date('Ymd', $theTime);
     foreach($cities1 AS $city => $url) {
-        $rawPath = __DIR__ . '/raw/' . $city;
+        $rawPath = __DIR__ . '/raw/students/' . $city;
         if(!file_exists($rawPath)) {
             mkdir($rawPath, 0777, true);
         }
@@ -105,7 +105,7 @@ foreach($days AS $day) {
         $c = str_replace(array(' bgcolor=#eeeeee ', '&nbsp;'), array('', ''), $c);
         $pos = strrpos($c, '<table');
         $lines = explode('<tr>', substr($c, $pos));
-        $targetPath = __DIR__ . '/csv/' . $city;
+        $targetPath = __DIR__ . '/csv/students/' . $city;
         if(!file_exists($targetPath)) {
             mkdir($targetPath, 0777, true);
         }

@@ -4,7 +4,7 @@ if(!file_exists($reportPath)) {
     mkdir($reportPath, 0777, true);
 }
 $result = array();
-foreach(glob(__DIR__ . '/csv/*/*.csv') AS $csvFile) {
+foreach(glob(__DIR__ . '/csv/students/*/*.csv') AS $csvFile) {
     $p = pathinfo($csvFile);
     $c = pathinfo($p['dirname']);
     if(!isset($result[$p['filename']])) {
@@ -43,7 +43,7 @@ foreach(glob(__DIR__ . '/csv/*/*.csv') AS $csvFile) {
     }
 }
 ksort($result);
-$fh = fopen($reportPath . '/report1.csv', 'w');
+$fh = fopen($reportPath . '/report_students.csv', 'w');
 fputcsv($fh, array('日期', '縣市', '智能障礙', '視覺障礙', '聽覺障礙', '語言障礙', '肢體障礙', '身體病弱', '嚴重情緒障礙', '學習障礙', '多重障礙', '自閉症', '發展遲緩', '其他顯著障礙', '小計'));
 foreach($result AS $theDate => $set1) {
     foreach($set1 AS $city => $data) {
