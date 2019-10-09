@@ -11,11 +11,9 @@ foreach(glob(__DIR__ . '/csv/schools/*.csv') AS $csvFile) {
     $fh = fopen($csvFile, 'r');
     $header = fgetcsv($fh, 2048);
     if(false === $keyPool) {
-        $keyPool = array('日期', '縣市');
+        $keyPool = array('日期');
         foreach($header AS $k => $v) {
-            if(false !== strpos($v, '身心障礙')) {
-                $keyPool[] = $v;
-            }
+            $keyPool[] = $v;
         }
         fputcsv($oFh, $keyPool);
     }
